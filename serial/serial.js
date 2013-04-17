@@ -1,3 +1,10 @@
+var serial = require("serialport"),
+    port_name = process.argv[2],
+    port = new serial.SerialPort(port_name, {
+        parser: serial.parsers.readline("\r\n")
+    });
+console.log("Opening serial port " + port_name);
+
 var express = require("express"), app = express(),
     server = require("http").createServer(app),
     io = require("socket.io").listen(server);
@@ -5,13 +12,6 @@ var express = require("express"), app = express(),
 server.listen(8080);
 console.log("Listening for new clients on http://localhost:8080");
 var connected = false;
-
-var serial = require("serialport"),
-    port_name = process.argv[2],
-    port = new serial.SerialPort(port_name, {
-        parser: serial.parsers.readline("\r\n")
-    });
-console.log("Opening serial port " + port_name);
 
 app.get("/", function(request, response) {
     response.sendfile(__dirname + "/client.html");
