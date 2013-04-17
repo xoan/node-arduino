@@ -16,5 +16,5 @@ Attach a `LM35DZ` to `A0` and a `LED` to `D8` (or change pins in `temp/temp.ino`
 
     $ node serial.js [port]
 
-Point you browser to http://localhost:8080
+Point you browser to [http://localhost:8080](http://localhost:8080)
 
