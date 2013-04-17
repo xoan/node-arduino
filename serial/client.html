@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Serial</title>
+
+        <script src="/socket.io/socket.io.js"></script>
+    </head>
+    <body>
+        <p>Temperature: <span id="temp">...</span>ºC</p>
+        <p><input type="checkbox" id="led"> LED</p>
+
+        <script>
+        var socket = io.connect("http://localhost:8080"),
+            temp = document.getElementById("temp"),
+            led = document.getElementById("led");
+
+        socket.on("serialEvent", function (data) {
+            temp.innerHTML = data;
+        });
+
+        led.addEventListener("click", function(event) {
+            socket.emit("ledEvent", { led: (this.checked ? "h" : "l") });
+        });
+    </script>
+    </body>
+</html>
