@@ -13,6 +13,7 @@ void setup() {
 }
 
 void loop() {
+  // TODO: Make it scalable?
   char in_char = Serial.read();
   switch (in_char) {
   case 'c': // Connect

@@ -12,6 +12,8 @@ Simple serial communication with Arduino using NodeJS.
 
 Attach a `LM35DZ` to `A0` and a `LED` to `D8` (or change pins in `temp/temp.ino` to fit your needs).
 
+You can use `wiring.png` as visual layout :)
+
 ## Running
 
     $ node serial.js port_name

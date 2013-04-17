@@ -20,7 +20,9 @@
         });
 
         led.addEventListener("click", function(event) {
-            socket.emit("ledEvent", { led: (this.checked ? "h" : "l") });
+            socket.emit("ledEvent", {
+                led: (this.checked ? "h" : "l")
+            });
         });
     </script>
     </body>
